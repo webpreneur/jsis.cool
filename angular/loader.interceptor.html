@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSisCool - Angular</title>
+</head>
+<body>
+    <p>
+        <p>
+            While I wanted to implement an Angular HTTP Loader interceptor.
+        </p>
+        <p>
+            My first problem was that it had to handle multiple, concurrent HTTP requests.
+            Therefore I had to introduce a counter which increases when an HTTP request was sent
+            and decreases when an HTTP request is finalized.
+        </p>
+        <p>
+            But this lead to another issue, which was that the tap runs twice and finalize only once.
+            So I needed to add a condition to check if the type of the HTTPEvent is 0 or not.
+            Now I only increase the request counter 
+            when the type of the HTTPEvent is 0, which means that the request was sent successfully.
+        </p>
+
+    </p>
+    
+    <a href="https://github.com/angular/angular/issues/32868" target="_blank">
+        HttpInterceptor triggers RxJS operator tap twice but finalize once
+    </a>
+
+</body>
+</html>
