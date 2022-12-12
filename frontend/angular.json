@@ -21,7 +21,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/js-is-cool",
+            "outputPath": "dist/jsIsCool/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -101,6 +101,60 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/jsIsCool/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "jsIsCool:build:development",
+              "serverTarget": "jsIsCool:server:development"
+            },
+            "production": {
+              "browserTarget": "jsIsCool:build:production",
+              "serverTarget": "jsIsCool:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "jsIsCool:build:production",
+              "serverTarget": "jsIsCool:server:production"
+            },
+            "development": {
+              "browserTarget": "jsIsCool:build:development",
+              "serverTarget": "jsIsCool:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
