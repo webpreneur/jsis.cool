@@ -1,0 +1,14 @@
+
+<header>
+    <nav>
+        <ul>
+            <li *ngFor="let route of (routes$ | async)">
+                <a [routerLink]="route" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    {{ route.split('/').pop() }}
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<p>angular works!</p>

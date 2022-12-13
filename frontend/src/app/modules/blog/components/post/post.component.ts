@@ -23,6 +23,6 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.title$ = this._route.paramMap.pipe(map((params) => params.get('id')!))
+      this.title$ = this._route.paramMap.pipe(map((params) => params.get('title')!))
   }
 }
