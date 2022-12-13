@@ -16,7 +16,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "jic",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -31,7 +31,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/dynamic-routes.txt"
             ],
             "styles": [
               "src/styles.scss"
@@ -140,9 +141,7 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": [
-              "/"
-            ]
+            "routesFile": "./src/dynamic-routes.txt"
           },
           "configurations": {
             "production": {
