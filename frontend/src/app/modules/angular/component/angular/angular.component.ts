@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 
 import { DynamicRoutesService, ROUTES } from 'src/app/services/dynamic-routes.service';
 
@@ -10,13 +9,13 @@ import { DynamicRoutesService, ROUTES } from 'src/app/services/dynamic-routes.se
 })
 export class AngularComponent {
 
-  public routes$: Observable<string[]>;
+  public routes: string[];
 
   constructor(
     private _dynamicRoutes: DynamicRoutesService,
   ) {
 
-    this.routes$ = this._dynamicRoutes.getRoutes(ROUTES.ANGULAR);
+    this.routes = this._dynamicRoutes.getRoutes(ROUTES.ANGULAR);
 
   }
 

@@ -1,6 +1,6 @@
 /
-/angular
-/angular/http-polling
-/angular/loader-interceptor
-/deno
-/clean-code
+angular
+angular/http-polling
+angular/loader-interceptor
+deno
+clean-code

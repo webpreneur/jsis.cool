@@ -2,6 +2,7 @@
   "name": "js-is-cool",
   "version": "0.0.0",
   "scripts": {
+    "preprerender": "node src/get-dynamic-routes.js",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

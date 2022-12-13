@@ -1,0 +1,8 @@
+{
+    "angular": [
+        "http-polling",
+        "loader-interceptor"
+    ],
+    "deno": [],
+    "clean-code": []
+}

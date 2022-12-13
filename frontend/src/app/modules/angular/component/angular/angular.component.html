@@ -2,7 +2,7 @@
 <header>
     <nav>
         <ul>
-            <li *ngFor="let route of (routes$ | async)">
+            <li *ngFor="let route of routes">
                 <a [routerLink]="route" routerLinkActive="active" ariaCurrentWhenActive="page">
                     {{ route.split('/').pop() }}
                 </a>
