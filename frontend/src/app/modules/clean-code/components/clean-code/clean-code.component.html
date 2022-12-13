@@ -1,0 +1,56 @@
+<main>
+
+<!--     <section>
+    1.) Prefer using an object as a function parameter, instead of multiple params.
+
+    <pre>
+    <code class="language-ts">
+    /** Bad */
+    function createCar(gps: boolean, radio: boolean) {
+        /** ... return a Car ...*/
+    }
+
+    /** Good */
+    interface ICarExtras {
+        gps: boolean;
+        radio: boolean;
+    }
+    function createCar(extras: ICarExtras) {
+        /** ... return a Car ...*/
+    }
+    </code>
+    </pre>
+
+    </section> -->
+
+<!--     <section>
+    2.) Prefer the Boolean class over the double negation syntax.
+    <pre><code class="lang-js">
+    function isValid(obj) {
+        return !!obj;
+    }
+
+    function isValid(obj) {
+        return Boolean(obj);
+    }
+    </code></pre>
+    </section> -->
+<!--     <section>
+    3.) Do not use magic strings.
+    Keep them in a constant instead for better readibility.
+    <pre class="lang-ts">
+    <code>
+    /** Bad */
+    function isExportAllowed(exportFileLength: number): boolean {
+        return exportFileLength &lt;= 1000;
+    }
+    /** Good */
+    function isExportAllowed(exportFileLength: number): boolean {
+        const allowedMaxLength = 1000;
+        return exportFileLength &lt;= allowedMaxLength;
+    }
+    </code>
+    </pre>
+    </section> -->
+
+</main>
