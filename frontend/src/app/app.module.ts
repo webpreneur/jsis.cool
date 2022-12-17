@@ -1,6 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { QuillModule } from 'ngx-quill';
+import { QuillConfigModule } from 'ngx-quill/config';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +26,15 @@ import { SharedModule } from './modules/shared/shared.module';
     AngularModule,
     CleanCodeModule,
     DenoModule,
+    QuillModule.forRoot({
+      suppressGlobalRegisterWarning: true
+    }),
+    QuillConfigModule.forRoot({
+      modules: {
+        syntax: true,
+        // toolbar: [...]
+      }
+    }),
     AppRoutingModule, // Must be at the end of the list, because of the wild card route!
   ],
   providers: [],
