@@ -8,7 +8,18 @@
   </nav>
 </header>
 <main>
+
   <quill-editor></quill-editor>
+
+<pre>
+    <code 
+      [highlight]="code" 
+      [languages]="['typescript']" 
+      [lineNumbers]=true
+      (highlighted)="onHighlight($event)"
+    >
+  </code>
+</pre>
 
   <router-outlet></router-outlet>
 </main>

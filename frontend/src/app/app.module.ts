@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { QuillModule } from 'ngx-quill';
 import { QuillConfigModule } from 'ngx-quill/config';
 
@@ -36,8 +37,25 @@ import { SharedModule } from './modules/shared/shared.module';
       }
     }),
     AppRoutingModule, // Must be at the end of the list, because of the wild card route!
+    /* TODO: Move this into a seperate module */
+    HighlightModule,
   ],
-  providers: [],
+    /* TODO: Move this into a seperate module */
+    providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
+        // @ts-ignore
+        lineNumbersLoader: () => import('highlightjs-line-numbers.js'),
+        languages: {
+          typescript: () => import('highlight.js/lib/languages/typescript'),
+          css: () => import('highlight.js/lib/languages/css'),
+          xml: () => import('highlight.js/lib/languages/xml')
+        },
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

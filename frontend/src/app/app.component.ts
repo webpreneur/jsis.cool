@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { HighlightAutoResult, HighlightLoader } from 'ngx-highlightjs';
+
 
 @Component({
   selector: 'jic-root',
@@ -9,6 +11,21 @@ import { Meta, Title } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
 
   private _title: string;
+
+  public code: string = `
+    /** Bad */
+    function createCar(gps: boolean, radio: 56)ff {
+        /** ... return a Car ...*/
+    }
+    /** Good */
+    interface ICarExtras {
+        gps: boolean;
+        radio: boolean;
+    }
+    function createCar(extras: ICarExtras) {
+        /** ... return a Car ...*/
+    }
+  `;
 
   constructor(
     private _titleService: Title,
@@ -24,6 +41,10 @@ export class AppComponent implements OnInit {
       { name: 'author', content: 'webpreneur' },
       { name: 'keywords', content: 'Angular, TypeScript, JavaScript, SASS, CSS' },
     ]);
+  }
+
+  onHighlight(highlightAutoResultEvent: HighlightAutoResult) {
+    console.log(highlightAutoResultEvent);
   }
 
 }
