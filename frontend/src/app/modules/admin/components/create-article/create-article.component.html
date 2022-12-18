@@ -1,0 +1,23 @@
+
+<header>
+    <h1>Article Creator</h1>
+</header>
+
+<main>
+    <quill-editor
+        (onContentChanged)="onContentChanged($event)"
+        (onEditorChanged)="onEditorChanged($event)"
+    ></quill-editor>
+</main>
+
+<footer>
+    <h2>Preview</h2>
+
+    <quill-view 
+        [content]="content$ | async" 
+        format="object" 
+        theme="snow"
+    >
+    </quill-view>
+
+</footer>

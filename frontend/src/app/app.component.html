@@ -5,22 +5,11 @@
     <a routerLink="deno" routerLinkActive="active" ariaCurrentWhenActive="page">Deno</a>
     <a routerLink="clean-code" routerLinkActive="active" ariaCurrentWhenActive="page">Clean Code</a>
     <a routerLink="angular" routerLinkActive="active" ariaCurrentWhenActive="page">Angular</a>
+    <a routerLink="resources" routerLinkActive="active" ariaCurrentWhenActive="page">Resources</a>
+    <a routerLink="admin" routerLinkActive="active" ariaCurrentWhenActive="page">Admin</a>
   </nav>
 </header>
 <main>
-
-  <quill-editor></quill-editor>
-
-<pre>
-    <code 
-      [highlight]="code" 
-      [languages]="['typescript']" 
-      [lineNumbers]=true
-      (highlighted)="onHighlight($event)"
-    >
-  </code>
-</pre>
-
   <router-outlet></router-outlet>
 </main>
 <footer>

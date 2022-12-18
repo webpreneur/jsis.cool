@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~highlight.js/styles/androidstudio.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/androidstudio.min.css';
 
 @import '~quill/dist/quill.snow.css'; // Snow is a clean, flat toolbar theme.
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: unset;
+}

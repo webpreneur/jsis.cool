@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { HighlightAutoResult, HighlightLoader } from 'ngx-highlightjs';
 
 
 @Component({
@@ -41,10 +40,6 @@ export class AppComponent implements OnInit {
       { name: 'author', content: 'webpreneur' },
       { name: 'keywords', content: 'Angular, TypeScript, JavaScript, SASS, CSS' },
     ]);
-  }
-
-  onHighlight(highlightAutoResultEvent: HighlightAutoResult) {
-    console.log(highlightAutoResultEvent);
   }
 
 }
