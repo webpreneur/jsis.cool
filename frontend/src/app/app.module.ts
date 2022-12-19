@@ -12,6 +12,7 @@ import { DenoModule } from './modules/deno/deno.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { ResourcesModule } from './resources/resources.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdminModule } from './modules/admin/admin.module';
 
     ResourcesModule,
     AdminModule,
+    BrowserAnimationsModule, 
     AppRoutingModule, // Must be at the end of the list, because of the wild card route!
   ],
     providers: [

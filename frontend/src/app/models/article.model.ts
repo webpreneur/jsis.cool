@@ -16,6 +16,10 @@ export class Article {
     private _updated: Date;
     private _tags: string[];
 
+    public get level(): 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED' {
+        throw new Error("Hasn't implemented yet!")
+    }
+
     public get title(): string {
         return this._title;
     }

@@ -4,12 +4,6 @@
 </header>
 
 <main>
-    
-    <quill-editor
-        #editor
-        (onContentChanged)="onContentChanged($event)"
-        (onEditorChanged)="onEditorChanged($event)"
-    ></quill-editor>
 
     <form [formGroup]="articleForm" (ngSubmit)="saveArticle()">
 
@@ -22,6 +16,23 @@
             <mat-label>Description</mat-label>
             <textarea matInput formControlName="description"></textarea>
         </mat-form-field>
+
+        <button 
+            type="button" 
+            mat-fab 
+            extended 
+            color="link" 
+            (click)="insertContentBlock($event, 0)"    
+        >
+            <mat-icon>add</mat-icon>
+            Add section
+        </button>
+
+        <quill-editor
+            #editor
+            (onContentChanged)="onContentChanged($event)"
+            (onEditorChanged)="onEditorChanged($event)"
+        ></quill-editor>
 
         <button type="submit" mat-raised-button color="primary">Save</button>
 
