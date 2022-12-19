@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { randomId } from '../functions/random-id';
-import { ArticleModel } from '../models/article.model';
+import { Article } from '../models/article.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,10 @@ export class ArticleService {
 
   constructor() { }
 
-  public save(article: ArticleModel) {
+  public save(article: Article) {
     const _id = randomId();
   }
-  public update(article: ArticleModel) {
+  public update(article: Article) {
     
   }
   public delete(id: string) {
@@ -21,7 +21,7 @@ export class ArticleService {
   public load(id: string) {
     
   }
-  public loadAll(): ArticleModel[] {
+  public loadAll(): Article[] {
     return [];
   }
 
