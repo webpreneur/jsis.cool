@@ -1,44 +1,40 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, Form, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ContentChange, EditorChangeContent, EditorChangeSelection, QuillEditorComponent } from 'ngx-quill';
-import { Delta } from 'quill';
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReplaySubject, Subject as BehaviorSubject } from 'rxjs';
-import { Article, QuillProps } from 'src/app/models/article.model';
+
+import { IContentSection } from 'src/app/models/article.interfaces';
+import { Article } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/services/article.service';
 
-type ContentSection = {
-  id: string;
-  content: ContentChange;
-}
 
 @Component({
   selector: 'jic-create-article',
   templateUrl: './create-article.component.html',
   styleUrls: ['./create-article.component.scss']
 })
-export class CreateArticleComponent implements OnInit {
+export class CreateArticleComponent {
 
-  @ViewChild('editor', { static: true }) public editor!: QuillEditorComponent;
-
-  public content$: ReplaySubject<Delta>;
-  public contentChange$: BehaviorSubject<ContentChange>;
   public articleForm: FormGroup;
 
-  public get quillPropsControl(): AbstractControl<QuillProps, QuillProps> {
-    return this.articleForm.get('quillProps') as AbstractControl<QuillProps, QuillProps>;
+  private _article: Article;
+
+  private get _title(): string {
+    return this.articleForm.get('title')?.value;
+  }
+  private get _description(): string {
+    return this.articleForm.get('description')?.value;
   }
 
   public get contentControls() {
-    return this.articleForm.get('contents') as FormArray<FormControl<ContentSection>>;
+    return this.articleForm.get('contents') as FormArray<FormControl<IContentSection>>;
   }
 
   constructor(
-    private _article: ArticleService,
+    private _articleService: ArticleService,
     private _fb: FormBuilder,
   ) {
 
-    this.content$ = new ReplaySubject(50);
-    this.contentChange$ = new BehaviorSubject();
+    this._article = new Article();
 
     this.articleForm = new FormGroup({
       title: new FormControl<string>('', {
@@ -50,20 +46,7 @@ export class CreateArticleComponent implements OnInit {
         updateOn: 'blur',
       }),
       description: new FormControl<string>(''),
-      quillProps: new FormControl<QuillProps>({
-        content: null,
-        html: null,
-        text: ''
-      }),
-      contents: this._fb.array<ContentSection>([]),
-    });
-  }
-
-  public ngOnInit(): void {
-    this.contentChange$.subscribe(({content, text, html}) => {
-      this.quillPropsControl.setValue({
-        content, text, html,
-      });
+      contents: this._fb.array<IContentSection>([]),
     });
   }
 
@@ -73,27 +56,16 @@ export class CreateArticleComponent implements OnInit {
     console.log(this.contentControls.value)
   }
   
-  public onContentChanged(contentChange: ContentChange): void {
-    console.log(contentChange);
-    this.contentChange$.next(contentChange);
-    this.content$.next(contentChange.content);
-  }
-  /**
-   * text or selection is updated - independent of the source
-   */
-  public onEditorChanged(ec: EditorChangeContent | EditorChangeSelection): void {
-    console.log(ec);
-  }
 
-  public saveArticle() {
 
-    const article = new Article({
-      quillProps: this.quillPropsControl.value,
-      title: '',
+  public saveArticle(): void {
 
-    });
-    console.log(article)
-    this._article.save(article);
+    this._article.setTitle(this._title);
+    this._article.setDescription(this._description);
+
+    this._article.update();
+
+    this._articleService.save(this._article);
 
   }
 

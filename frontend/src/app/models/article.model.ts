@@ -1,21 +1,17 @@
-import { Delta } from "quill";
 import { randomId } from "../functions/random-id";
-
-export interface QuillProps {
-    content: Delta | null, html: string | null, text: string
-}
+import { Contents } from "./contents.model";
 
 export class Article {
     readonly id: string;
     readonly created: Date;
     readonly author: string;
-
-    private _quillProps: QuillProps;
+    readonly contents: Contents;
 
     private _title: string;
+    private _description: string;
     private _updated: Date;
     private _tags: string[];
-
+    
     public get level(): 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED' {
         throw new Error("Hasn't implemented yet!")
     }
@@ -23,17 +19,9 @@ export class Article {
     public get title(): string {
         return this._title;
     }
-
-    public get content(): Delta | null {
-        return this._quillProps.content;
+    public get description(): string {
+        return this._description;
     }
-    public get html(): string | null {
-        return this._quillProps.html;
-    }
-    public get text(): string {
-        return this._quillProps.text;
-    }
-
     public get tags(): string[] {
         return this._tags;
     }
@@ -45,16 +33,14 @@ export class Article {
         return '';
     }
 
-    constructor({ quillProps, title }:{
-        quillProps: QuillProps,
-        title: string
-    }) {
+    constructor() {
         this.id = randomId();
         this.created = new Date();
         this.author = 'webpreneur';
+        this.contents = new Contents();
         
-        this._title = title;
-        this._quillProps = quillProps;
+        this._description = '';
+        this._title = '';
         this._updated = new Date();
         this._tags = [];
     }
@@ -67,15 +53,17 @@ export class Article {
             new Set([...this.tags, ...tags.split(',')])
         );
     }
-    public updateQuillProps(props: QuillProps) {
-        this._quillProps = props;
-    }
-    public updateTitle(title: string): string {
+
+    public setTitle(title: string) {
         this._title = title;
-        return this.title;
     }
+    public setDescription(description: string) {
+        this._description = description;
+    }
+
     public share(): void {
         /** TODO: Implement an url write to clipboard. */
     }
 
 }
+

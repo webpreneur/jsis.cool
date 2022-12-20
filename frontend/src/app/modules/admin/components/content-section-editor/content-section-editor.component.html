@@ -1,0 +1,12 @@
+<form [formGroup]="contentEditorForm">
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+    </mat-form-field>
+</form>
+
+<quill-editor
+    #editor
+    (onContentChanged)="onContentChanged($event)"
+    (onEditorChanged)="onEditorChanged($event)"
+></quill-editor>

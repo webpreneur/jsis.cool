@@ -12,13 +12,15 @@ import { QuillModule, QuillConfigModule } from 'ngx-quill';
 import { AdminRoutingModule } from './admin-routing.module';
 import { CreateArticleComponent } from './components/create-article/create-article.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ContentSectionEditorComponent } from './components/content-section-editor/content-section-editor.component';
 
 
 
 @NgModule({
   declarations: [
     CreateArticleComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContentSectionEditorComponent
   ],
   imports: [
     ReactiveFormsModule,
