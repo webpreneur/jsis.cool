@@ -29,13 +29,16 @@ It has to be imported, but maintained by Deno team.
 
 ##### Oak
 
-...
+- CRUD
+- CORS
 
 #### 3rd party modules
 
 Developed by the community.
 
+#### Style Guide
 
+- Folder and file names must be seperated by an underscore, not a dash.
 
 ### ZTM - Deno Course [LEGACY]
 
