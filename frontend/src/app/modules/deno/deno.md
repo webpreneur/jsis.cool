@@ -1,5 +1,22 @@
 # Deno
 
+- Deno is a JavaScript / TypeScript runtime.
+- Built on Google's V8 engine (written in C++).
+    - V8 engine compiles down JS to machine code.
+    - Deno / Node is a shell around V8.
+        - Deno takes TS, compiles it down into JS then passes it to V8
+- Written in Rust (heavily invested by Mozilla)
+
+## Deno Runtime
+
+### Deno Process
+
+A Process is like a sandbox, it gets memory allocated, etc.
+
+rusty_v8 (Rust is safer and more performant than C++)
+
+tokyo
+
 ## Resources
 
 ### NodeJS - The Complete Guide
@@ -18,6 +35,7 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 
 - Out of the box modern JS features. Eg.: ES Modules?, Promises, fetch API.
 - Secure by default (requires permissions)
+- Standard libraries 
 
 #### Deno Runtime (Namespace) API
 
@@ -25,7 +43,7 @@ Available by default. Low level core functionalities.
 
 #### Standard libraries
 
-It has to be imported, but maintained by Deno team.
+It has to be imported, but maintained by Deno team. Reviewed and audited!
 
 ##### Oak
 
@@ -40,7 +58,7 @@ Developed by the community.
 
 - Folder and file names must be seperated by an underscore, not a dash.
 
-### ZTM - Deno Course [LEGACY]
+### ZTM - Deno Course [LEGACY] - deno 1.0.0
 
 Master Deno and learn to build professional scale Deno apps! The must learn technology of 2022 for JavaScript developers
 
