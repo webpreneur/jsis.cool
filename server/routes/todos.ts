@@ -1,4 +1,4 @@
-import { Router } from 'https://deno.land/x/oak/mod.ts';
+import { Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 
 const router = new Router();
 
@@ -14,7 +14,8 @@ router.get('/todos', (ctx) => {
 });
 
 router.post('/todos', async (ctx) => {
-  const data = await ctx.request.body();
+  // deno-lint-ignore no-explicit-any
+  const data: { value: any } = await ctx.request.body();
   const newTodo: Todo = {
     id: new Date().toISOString(),
     text: data.value.text,
@@ -27,7 +28,8 @@ router.post('/todos', async (ctx) => {
 
 router.put('/todos/:todoId', async (ctx) => {
   const tid = ctx.params.todoId;
-  const data = await ctx.request.body();
+  // deno-lint-ignore no-explicit-any
+  const data: { value: any } = await ctx.request.body();
   const todoIndex = todos.findIndex((todo) => {
     return todo.id === tid;
   });
