@@ -1,6 +1,15 @@
 # jsis.cool
 home page for the jsis.cool channel
 
+## Docker
+
+### Build Containers
+
+`$ docker-compose up --build`
+### Run Containers
+
+`$ docker-compose up`
+
 # Libraries used in the project
 
 ## Angular Text Editor Library (for writing articles)

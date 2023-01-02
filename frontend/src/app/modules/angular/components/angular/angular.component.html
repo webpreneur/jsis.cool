@@ -12,34 +12,40 @@
 </header>
 
 <main>
-    
-    <section>
-        <h1>HTTP Polling</h1>
-        <a href="https://www.learnrxjs.io/learn-rxjs/recipes/http-polling">RxJS Http Polling Recipe</a>
-    </section>
+  <section>
+    <h3>CLI childmodule</h3>
+    <p>use "--module=app.module"</p>
+  </section>
 
-    <section>
-        <h1>Loader interceptor</h1>
+  <section>
+    <h2>Component Architecture</h2>
+    <h3>smart (containers) vs. dumb components</h3>
+    <ul>
+      <li>Dumb Components are reusable</li>
 
-        <p>
-            While I wanted to implement an Angular HTTP Loader interceptor.
-        </p>
-        <p>
-            My first problem was that it had to handle multiple, concurrent HTTP requests.
-            Therefore I had to introduce a counter which increases when an HTTP request was sent
-            and decreases when an HTTP request is finalized.
-        </p>
-        <p>
-            But this lead to another issue, which was that the tap runs twice and finalize only once.
-            So I needed to add a condition to check if the type of the HTTPEvent is 0 or not.
-            Now I only increase the request counter 
-            when the type of the HTTPEvent is 0, which means that the request was sent successfully.
-        </p>
-        
-        <a href="https://github.com/angular/angular/issues/32868" target="_blank">
-            HttpInterceptor triggers RxJS operator tap twice but finalize once
-        </a>
-    </section>
+    </ul>
+    <p>containers contain business logic, fetching data, etc.</p>
+    <p>'containers' and 'components' folder in the module directory</p>
+    <p>the container (smart) component is in charge of handling down data to dumb components</p>
+    <p>the dumb components does not care where data comes from</p>
+  </section>
 
+  <section>
+    <h3>Interfaces (Models)</h3>
+    <pre>
+      <code>$ npx ng g interface admin/models/Donut model</code>
+      <code>CREATE ./admin/models/donut.model.ts</code>
+    </pre>
+    <p>"models" folder in the module directory</p>
+  </section>
+
+  <section>
+    <h3>style</h3>
+    <p>Style is scoped to a particular component</p>
+    <p>Angular generates random attribute strings to component tags for cache busting reasons and encapsulation.</p>
+
+  </section>
 
 </main>
+
+<p>angular works!</p>
