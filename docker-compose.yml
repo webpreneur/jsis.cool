@@ -37,6 +37,6 @@ services:
       POSTGRES_HOST: postgres
       POSTGRES_PASSWORD: secret
       POSTGRES_USER: sally
-    image: postgres
+    build: ./postgres
     ports:
       - "5432:5432"

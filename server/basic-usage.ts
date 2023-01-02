@@ -13,9 +13,9 @@ import {
 
 log.info(Deno.env.get('POSTGRES_DB'));
 
-sql`CREATE TABLE IF NOT EXISTS posts (tags TEXT[], title TEXT)`.then(
+/* sql`CREATE TABLE IF NOT EXISTS posts (tags TEXT[], title TEXT)`.then(
     console.log
-).catch(console.error);
+).catch(console.error); */
     
 
 const books = new Map<string, any>();
