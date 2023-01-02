@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  #Frontend
+  angular-server:
+    container_name: frontend
+    # image: node:18.12.1
+    build: ./frontend
+    command: npm start
+    working_dir: /usr/src/frontend
+    links:
+      - postgres
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/usr/src/frontend
+  # Backend API
+  deno-server:
+    container_name: backend
+    build: ./server
+    # command: deno run --allow-net --watch basic-usage.ts
+    working_dir: /usr/src/server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/usr/src/server
+    environment:
+      POSTGRES_URI: postgres://sally:secret@postgres:5432/jsis-cool-docker
+      POSTGRES_DB: jsis-cool-docker
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: sally
+  # Database
+  postgres:
+    environment:
+      POSTGRES_DB: jsis-cool-docker
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: sally
+    image: postgres
+    ports:
+      - "5432:5432"
