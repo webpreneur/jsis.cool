@@ -11,4 +11,34 @@
     </nav>
 </header>
 
+<main>
+  <section>
+    <h3>CLI childmodule</h3>
+    <p>use "--module=app.module"</p>
+  </section>
+
+  <section>
+    <h2>Component Architecture</h2>
+    <h3>smart (containers) vs. dumb components</h3>
+    <ul>
+      <li>Dumb Components are reusable</li>
+
+    </ul>
+    <p>containers contain business logic, fetching data, etc.</p>
+    <p>'containers' and 'components' folder in the module directory</p>
+    <p>the container (smart) component is in charge of handling down data to dumb components</p>
+    <p>the dumb components does not care where data comes from</p>
+  </section>
+
+  <section>
+    <h3>Interfaces (Models)</h3>
+    <pre>
+      <code>$ npx ng g interface admin/models/Donut model</code>
+      <code>CREATE ./admin/models/donut.model.ts</code>
+    </pre>
+    <p>"models" folder in the module directory</p>
+  </section>
+
+</main>
+
 <p>angular works!</p>

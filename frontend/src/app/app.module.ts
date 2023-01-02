@@ -10,6 +10,7 @@ import { BlogModule } from './modules/blog/blog.module';
 import { CleanCodeModule } from './modules/clean-code/clean-code.module';
 import { DenoModule } from './modules/deno/deno.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { ScssModule } from './modules/scss/scss.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SharedModule } from './modules/shared/shared.module';
     AngularModule,
     CleanCodeModule,
     DenoModule,
-    AppRoutingModule, // Must be at the end of the list, because of the wild card route!
+    AppRoutingModule,
+    ScssModule, // Must be at the end of the list, because of the wild card route!
   ],
   providers: [],
   bootstrap: [AppComponent]
