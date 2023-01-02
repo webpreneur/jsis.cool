@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
+
 @Component({
   selector: 'jic-root',
   templateUrl: './app.component.html',
@@ -9,6 +10,21 @@ import { Meta, Title } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
 
   private _title: string;
+
+  public code: string = `
+    /** Bad */
+    function createCar(gps: boolean, radio: 56)ff {
+        /** ... return a Car ...*/
+    }
+    /** Good */
+    interface ICarExtras {
+        gps: boolean;
+        radio: boolean;
+    }
+    function createCar(extras: ICarExtras) {
+        /** ... return a Car ...*/
+    }
+  `;
 
   constructor(
     private _titleService: Title,

@@ -11,6 +11,9 @@ import { CleanCodeModule } from './modules/clean-code/clean-code.module';
 import { DenoModule } from './modules/deno/deno.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { ScssModule } from './modules/scss/scss.module';
+import { ResourcesModule } from './resources/resources.module';
+import { AdminModule } from './modules/admin/admin.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,8 +30,14 @@ import { ScssModule } from './modules/scss/scss.module';
     DenoModule,
     AppRoutingModule,
     ScssModule, // Must be at the end of the list, because of the wild card route!
+
+    ResourcesModule,
+    AdminModule,
+    BrowserAnimationsModule,
+    AppRoutingModule, // Must be at the end of the list, because of the wild card route!
   ],
-  providers: [],
+    providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

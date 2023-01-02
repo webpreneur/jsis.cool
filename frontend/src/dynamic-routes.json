@@ -4,5 +4,6 @@
         "loader-interceptor"
     ],
     "deno": [],
-    "clean-code": []
+    "clean-code": [],
+    "resources": []
 }

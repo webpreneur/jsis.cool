@@ -1,16 +1,23 @@
 # jsis.cool
 home page for the jsis.cool channel
 
-## Table of Contents
-
-- [Clean Code](https://htmlpreview.github.io/?https://github.com/webpreneur/jsis.cool/blob/main/clean-code/index.html)
+# Libraries used in the project
 
 ## Angular Text Editor Library (for writing articles)
 
 [ngx-quill](https://www.npmjs.com/package/ngx-quill)
 
+https://github.com/KillerCodeMonkey/ngx-quill
 
-## Public Angular + Deno (REST) app repos on GitHub
+
+# Table of Contents
+
+- [Clean Code](https://htmlpreview.github.io/?https://github.com/webpreneur/jsis.cool/blob/main/clean-code/index.html)
+
+
+
+
+# Public Angular + Deno (REST) app repos on GitHub
 
 ### Original search query
 
