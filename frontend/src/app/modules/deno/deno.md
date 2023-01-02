@@ -35,7 +35,41 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 
 - Out of the box modern JS features. Eg.: ES Modules?, Promises, fetch API.
 - Secure by default (requires permissions)
-- Standard libraries 
+- Standard libraries
+    - tested and authored by the deno developers
+- Built-in tooling
+    - test
+    - code formatting
+    - file  watcher
+- Browser compatible API
+- Single executable
+    - 
+- Async always returns Promises
+    - rust futures...
+- Opinionated Modules
+    - Deno Style Guide! - it makes sure to have a standard (Deno Style Guide)[https://deno.land/manual@v1.29.1/references/contributing/style_guide]
+
+## Security
+- Sandboxes
+- Virtual Machines
+- Containers
+
+## Modules
+
+- importing by referencing urls
+- `deno info 'file-path.js'`
+- it is mandatory to give expicitly the file extension
+- external vs. internal modules
+- standard library
+    - maintained by the deno team
+- 3rd party modules
+- caching
+    - `$DENO_DIR`
+    - we can commit the cached dependencies
+- `mod.ts` - go language convention mod for module
+- lock `--lock=lock.json`
+
+
 
 #### Deno Runtime (Namespace) API
 

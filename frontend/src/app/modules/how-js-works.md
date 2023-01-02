@@ -46,5 +46,12 @@ No need to interpret and compile in order to run the JS code in the browser.
     - stack trace (a "snippet" of the call stack)
     - single threaded (synchronous): there is only one call stack
 
+## JavaScript Runtime
+
+- single threaded: 1 thread, 1 heap
+- The JS runtime (actually the browser) provides the Web API (fetch, setInterval, indexedDB, DOM)
+    - it is asynchronous
+- event loop: if the call stack is empty...
+
 ### Global Execution Context
 
