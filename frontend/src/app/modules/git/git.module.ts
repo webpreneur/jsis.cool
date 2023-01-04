@@ -1,17 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { GitComponent } from './components/git/git.component';
-import { TaggingComponent } from './components/tagging/tagging.component';
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { GitComponent } from "./components/git/git.component";
+import { TaggingComponent } from "./components/tagging/tagging.component";
 
 @NgModule({
   declarations: [
     GitComponent,
-    TaggingComponent
+    TaggingComponent,
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+  ],
 })
-export class GitModule { }
+export class GitModule {}

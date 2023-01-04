@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { DenoComponent } from './components/deno/deno.component';
+import { DenoComponent } from "./components/deno/deno.component";
 
 const routes: Routes = [
   {
-    path: 'deno',
+    path: "deno",
     component: DenoComponent,
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DenoRoutingModule { }
+export class DenoRoutingModule {}

@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { DynamicRoutesService } from './dynamic-routes.service';
+import { DynamicRoutesService } from "./dynamic-routes.service";
 
-describe('DynamicRoutesService', () => {
+describe("DynamicRoutesService", () => {
   let service: DynamicRoutesService;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('DynamicRoutesService', () => {
     service = TestBed.inject(DynamicRoutesService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

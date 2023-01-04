@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { CleanCodeRoutingModule } from './clean-code-routing.module';
-import { CleanCodeComponent } from './components/clean-code/clean-code.component';
-
+import { CleanCodeRoutingModule } from "./clean-code-routing.module";
+import { CleanCodeComponent } from "./components/clean-code/clean-code.component";
 
 @NgModule({
   declarations: [
-    CleanCodeComponent
+    CleanCodeComponent,
   ],
   imports: [
     CommonModule,
-    CleanCodeRoutingModule
-  ]
+    CleanCodeRoutingModule,
+  ],
 })
-export class CleanCodeModule { }
+export class CleanCodeModule {}

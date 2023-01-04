@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { DenoRoutingModule } from './deno-routing.module';
-import { DenoComponent } from './components/deno/deno.component';
-
+import { DenoRoutingModule } from "./deno-routing.module";
+import { DenoComponent } from "./components/deno/deno.component";
 
 @NgModule({
   declarations: [
-    DenoComponent
+    DenoComponent,
   ],
   imports: [
     CommonModule,
-    DenoRoutingModule
-  ]
+    DenoRoutingModule,
+  ],
 })
-export class DenoModule { }
+export class DenoModule {}

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 /* TODO: Import this! */
 
@@ -8,8 +8,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
   ],
-  providers: [
-
-  ]
+  providers: [],
 })
-export class VendorModule { }
+export class VendorModule {}
