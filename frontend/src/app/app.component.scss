@@ -6,5 +6,16 @@
       display: grid;
     }
 
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      font-weight: normal;
+      margin: 0;
 
+      mat-icon {
+        padding: calc((48px - 24px) / 2);
+        padding-right: 0;
+      }
+    }
 }

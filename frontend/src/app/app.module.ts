@@ -17,6 +17,7 @@ import { ResourcesModule } from "./resources/resources.module";
 import { AdminModule } from "./modules/admin/admin.module";
 import { AuthModule } from "./modules/auth/auth.module";
 import { HeaderModule } from "./modules/header/header.module";
+import { MatIconModule } from "@angular/material/icon";
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { HeaderModule } from "./modules/header/header.module";
     AuthModule,
     BlogModule,
     BrowserAnimationsModule,
+    MatIconModule,
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     CleanCodeModule,
     DenoModule,

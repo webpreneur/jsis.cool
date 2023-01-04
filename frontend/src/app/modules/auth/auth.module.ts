@@ -9,12 +9,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +26,7 @@ import { RegisterComponent } from './components/register/register.component';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
+    HttpClientModule,
   ]
 })
 export class AuthModule { }
