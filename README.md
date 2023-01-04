@@ -1,4 +1,5 @@
 # jsis.cool
+
 home page for the jsis.cool channel
 
 ## Docker
@@ -6,6 +7,7 @@ home page for the jsis.cool channel
 ### Build Containers
 
 `$ docker-compose up --build`
+
 ### Run Containers
 
 `$ docker-compose up`
@@ -18,13 +20,9 @@ home page for the jsis.cool channel
 
 https://github.com/KillerCodeMonkey/ngx-quill
 
-
 # Table of Contents
 
 - [Clean Code](https://htmlpreview.github.io/?https://github.com/webpreneur/jsis.cool/blob/main/clean-code/index.html)
-
-
-
 
 # Public Angular + Deno (REST) app repos on GitHub
 
@@ -42,7 +40,6 @@ https://github.com/pacoita/deno-api-mock
 
 https://github.com/denulemos/denofy
 
-
 ## Angular universal with Deno!?
 
 https://www.youtube.com/watch?v=X2qxpDriWjY&ab_channel=WesBos
@@ -51,13 +48,11 @@ https://reflect.run/articles/how-to-use-node-modules-in-deno/
 
 [Angular Renderer in Deno](https://deno.land/x/angular_deno@v0.3.1)
 
-
 https://deno.land/manual@v1.28.1/node/cdns
 
 https://deno.land/manual@v1.28.1/node/how_to_with_npm/express
 
 https://deno.land/manual@v1.28.1/node/npm_specifiers
-
 
 ## Article ideas
 
@@ -71,7 +66,6 @@ https://s3.amazonaws.com/kajabi-storefronts-production/sites/84621/downloads/JQA
 
 [The Dangers of UI Testing Mocks](https://youtu.be/stK0cGlJETo)
 [The No. 1 Reason JavaScript UI Testing and TDD Fails](https://youtu.be/s6udw_sNZjM)
-
 
 ### CSS containers
 
@@ -90,7 +84,6 @@ https://marketplace.visualstudio.com/items?itemName=burkeholland.vs-code-can-do-
 Bonus:
 
 https://www.youtube.com/watch?v=A2g4IwtAX_I&ab_channel=developedbyed
-
 
 Magyarul:
 

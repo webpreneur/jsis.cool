@@ -1,9 +1,9 @@
 {
-    "angular": [
-        "http-polling",
-        "loader-interceptor"
-    ],
-    "deno": [],
-    "clean-code": [],
-    "resources": []
+  "angular": [
+    "http-polling",
+    "loader-interceptor"
+  ],
+  "deno": [],
+  "clean-code": [],
+  "resources": []
 }
