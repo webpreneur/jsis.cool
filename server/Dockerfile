@@ -6,5 +6,5 @@ WORKDIR /usr/src/server
 
 COPY ./ ./
 
-CMD ["deno", "run", "--allow-net", "--allow-env", "--watch", "basic-usage.ts"]
+CMD ["deno", "run", "--allow-net", "--allow-env", "--allow-read", "--watch", "basic-usage.ts"]
 # CMD ["/bin/bash"]
