@@ -7,6 +7,11 @@ This project was generated with
 
 `$ docker build -t jsiscool-frontend`
 
+## mat-icon
+
+https://jossef.github.io/material-design-icons-iconfont/
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The

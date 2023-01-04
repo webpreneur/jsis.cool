@@ -1,5 +1,31 @@
-<mat-form-field appearance="fill">
-  <mat-label>Enter your email</mat-label>
-  <input matInput placeholder="pat@example.com" [formControl]="email" required>
-  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-</mat-form-field>
+<header>
+  <h1>Register</h1>
+</header>
+<main>
+
+  <form (submit)="onRegister($event)" [formGroup]="registerFormGroup">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your name</mat-label>
+      <input matInput placeholder="James Bond" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" formControlName="email" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input
+      type="password"
+      matInput
+      placeholder="Type your password here"
+      formControlName="password" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Register</button>
+
+</form>
+
+</main>

@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+
+  <h1>{{ title }}</h1>
+
+  <section>
+
+    <ng-content></ng-content>
+
+    <button
+      [matMenuTriggerFor]="menu"
+      mat-icon-button
+      aria-label="icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+
+      <a mat-menu-item routerLink="profile">
+        <mat-icon>account_box</mat-icon>
+        <span>Profile</span>
+      </a>
+
+      <a mat-menu-item routerLink="login">
+        <mat-icon>login</mat-icon>
+        <span>Login</span>
+      </a>
+
+      <a mat-menu-item routerLink="register">
+        <mat-icon>assignment</mat-icon>
+        <span>Register</span>
+      </a>
+
+      <a mat-menu-item routerLink="logout">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </a>
+
+    </mat-menu>
+  </section>
+
+
+</mat-toolbar>

@@ -1,0 +1,12 @@
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    margin: 0;
+  }
+  section {
+    display: flex;
+    align-items: center;
+  }
+}

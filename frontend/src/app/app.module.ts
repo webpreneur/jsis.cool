@@ -1,6 +1,8 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -13,8 +15,9 @@ import { SharedModule } from "./modules/shared/shared.module";
 import { ScssModule } from "./modules/scss/scss.module";
 import { ResourcesModule } from "./resources/resources.module";
 import { AdminModule } from "./modules/admin/admin.module";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AuthModule } from "./modules/auth/auth.module";
+import { HeaderModule } from "./modules/header/header.module";
+
 
 @NgModule({
   declarations: [
@@ -22,20 +25,19 @@ import { AuthModule } from "./modules/auth/auth.module";
     NotFoundComponent,
   ],
   imports: [
-    HttpClientModule,
-    BrowserModule.withServerTransition({ appId: "serverApp" }),
-    SharedModule,
-    BlogModule,
+    AdminModule,
     AngularModule,
     AuthModule,
+    BlogModule,
+    BrowserAnimationsModule,
+    BrowserModule.withServerTransition({ appId: "serverApp" }),
     CleanCodeModule,
     DenoModule,
-    AppRoutingModule,
-    ScssModule, // Must be at the end of the list, because of the wild card route!
-
+    HttpClientModule,
     ResourcesModule,
-    AdminModule,
-    BrowserAnimationsModule,
+    ScssModule,
+    SharedModule,
+    HeaderModule,
     AppRoutingModule, // Must be at the end of the list, because of the wild card route!
   ],
   providers: [],

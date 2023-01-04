@@ -1,11 +1,9 @@
 
-<header>
-    <h1>Article Creator</h1>
-</header>
+<h2 mat-dialog-title>Article Creator</h2>
 
-<main>
+<mat-dialog-content>
 
-    <form [formGroup]="articleForm" (ngSubmit)="saveArticle()">
+    <form id="editorForm" [formGroup]="articleForm" (ngSubmit)="saveArticle()">
 
         <mat-form-field>
             <mat-label>Title</mat-label>
@@ -17,11 +15,11 @@
             <textarea matInput formControlName="description"></textarea>
         </mat-form-field>
 
-        <button 
-            type="button" 
-            mat-fab 
-            extended 
-            color="link" 
+        <button
+            type="button"
+            mat-fab
+            extended
+            color="link"
             (click)="insertContentBlock($event, 0)"
         >
             <mat-icon>add</mat-icon>
@@ -30,19 +28,19 @@
 
         <jic-content-section-editor></jic-content-section-editor>
 
-        <button type="submit" mat-raised-button color="primary">Save</button>
-
     </form>
-</main>
 
-<footer>
-    <h2>Preview</h2>
-<!-- 
-    <quill-view 
-        [content]="content$ | async" 
-        format="object" 
-        theme="snow"
-    >
-    </quill-view> -->
+    <!--
+      <quill-view
+          [content]="content$ | async"
+          format="object"
+          theme="snow"
+      >
+      </quill-view> -->
+</mat-dialog-content>
 
-</footer>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button form="editorForm" type="submit" mat-raised-button color="primary">Save</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Default Mat Btn?...</button>
+</mat-dialog-actions>
