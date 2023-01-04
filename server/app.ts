@@ -1,7 +1,6 @@
 import { Application } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 
-
-import todosRoutes from './routes/todos.ts';
+import todosRoutes from "./routes/todos.ts";
 
 const app = new Application();
 

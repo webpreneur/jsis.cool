@@ -1,22 +1,16 @@
 import { Application, log, logger, Router } from "./deps.ts";
-import sql from './db/db.ts';
+import sql from "./db/db.ts";
 
+import { errorLog, warningLog } from "https://deno.land/x/colorlog/mod.ts";
 
-import {
-    errorLog,
-    warningLog,
-  } from 'https://deno.land/x/colorlog/mod.ts';
-    
-  errorLog('Error');
-  warningLog('Warning');
+errorLog("Error");
+warningLog("Warning");
 
-
-log.info(Deno.env.get('POSTGRES_DB'));
+log.info(Deno.env.get("POSTGRES_DB"));
 
 /* sql`CREATE TABLE IF NOT EXISTS posts (tags TEXT[], title TEXT)`.then(
     console.log
 ).catch(console.error); */
-    
 
 const books = new Map<string, any>();
 
@@ -49,11 +43,9 @@ app.use(router.allowedMethods());
 const port = 8080;
 
 try {
+  await app.listen({ port });
 
-    await app.listen({ port })
-
-    log.info('App is listening on port ' + port);
-
-} catch(e) {
-    errorLog(e);
+  log.info("App is listening on port " + port);
+} catch (e) {
+  errorLog(e);
 }
