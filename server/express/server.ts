@@ -32,8 +32,6 @@ const config: knex.Knex.Config = {
   }
 }
 
-console.log(config);
-
 interface User {
   email: string;
   posts: number;
@@ -51,8 +49,21 @@ try {
 
 const app = express();
 
+const whitelist = ['http://localhost:4200'];
+const corsOptions: cors.CorsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+};
+
+let corsHandler = cors(corsOptions) as (options: cors.CorsOptions) => express.RequestHandler;
+
+app.use(corsHandler);
 app.use(express.json());
-// app.use(cors());
 
 
 app.get("/", function (f, res) {
