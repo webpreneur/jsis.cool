@@ -1,3 +1,5 @@
+import { load } from "https://deno.land/std@0.171.0/dotenv/mod.ts";
+
 // @deno-types="npm:@types/express@4.17.0"
 import express from "npm:express@4.17.0";
 /// <reference types="npm:@types/node" />
@@ -5,31 +7,63 @@ import express from "npm:express@4.17.0";
 import bcrypt from "npm:bcrypt@5.1.0";
 // @deno-types="npm:@types/cors@2.8.13";
 import cors from "npm:cors@2.8.5";
+// @deno-types="npm:@types/pg@8.6.6";
+import pg from "npm:pg@8.8.0";
 
-import knex, { Knex } from "npm:knex@2.3.0";
+import * as knex from "npm:knex@2.3.0";
+
+const {
+  POSTGRES_DATABASE: database,
+  POSTGRES_HOST: host,
+  POSTGRES_PASSWORD: password,
+  POSTGRES_PORT,
+  POSTGRES_USER: user,
+} = await load();
 
 
-const config: Knex.Config = {
+const config: knex.Knex.Config = {
   client: 'pg',
-  connection: Deno.env.get("POSTGRES_URI") as string,
+  connection: {
+    database,
+    host,
+    password,
+    port: Number(POSTGRES_PORT),
+    user,
+  }
 }
 
 interface User {
-
+  email: string;
+  posts: number;
 }
 
-const db = knex(config);
+const db = knex.default.knex(config);
 
 try {
-  const users = await knex<User>('users').select('id', 'age');
+  const users = await db<User>('users').select('email', 'posts');
+  console.log(users);
 } catch (err) {
   // error handling
+  console.error(err);
 }
 
 const app = express();
 
+const whitelist = ['http://localhost:4200'];
+const corsOptions: cors.CorsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+};
+
+let corsHandler = cors(corsOptions) as (options: cors.CorsOptions) => express.RequestHandler;
+
+app.use(corsHandler);
 app.use(express.json());
-app.use(cors());
 
 
 app.get("/", function (f, res) {
