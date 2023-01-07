@@ -1,45 +1,29 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { products } from './db/db.js';
 
-// The GraphQL schema
-const typeDefs = `#graphql
+import { typeDefs } from './schema.js';
+import { Category, Product, Query } from './resolvers/index.js';
+import { categories, products, reviews } from './db/db.js';
 
-  type Query {
-    hello: String
-    products: [Product!]!
-    product(id: ID!): Product
-  }
-
-  type Product {
-    name: String!
-    description: String!
-    quantity: Int!
-    price: Float!
-    onSale: Boolean!
-    image: String!
-  }
-
-`;
-
-// A map of functions which return data for the schema.
-const resolvers = {
-  Query: {
-    hello: () => 'world',
-    products: () => {
-        return products;
-    },
-    product: (parent, args, content) => {
-        console.log(args);
-        return products.find(({id}) => id === args.id);
-    }
-  },
-};
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers: {
+    Category,
+    Product,
+    Query,
+  },
 });
 
-const { url } = await startStandaloneServer(server);
+const { url } = await startStandaloneServer(
+  server,
+  {
+    context: async () => ({
+      categories,
+      products,
+      reviews,
+    }),
+    listen: { port: 4000 }
+  }
+);
 console.log(`🚀 Server ready at ${url}`);
