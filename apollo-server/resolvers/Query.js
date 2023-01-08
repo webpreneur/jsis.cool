@@ -1,6 +1,21 @@
 export const Query = {
-    products: (parent, args, { products }) => {
-        return products;
+    products: (parent, { filter: { onSale, avgRating} }, { products, reviews }) => {
+        if ( !filter ) {
+            return products;
+        }
+        let filteredProducts = products;
+        if ( typeof onSale === "boolean" ) {
+            filteredProducts = filteredProducts.filter(p => p.onSale === onSale );
+        }
+        if ( typeof avgRating === "number" ) {
+            const getReviews = (productId) => {
+                return reviews.filter(r => r.productId === productId);
+            };
+            filteredProducts = filteredProducts.filter(p => {
+                getReviews(p.id).reduce(() => {})
+            });
+        }
+
     },
     product: (parent, args, { products }) => {
         return products.find(({id}) => id === args.id);
