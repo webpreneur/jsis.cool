@@ -10,6 +10,9 @@ import cors from "npm:cors@2.8.5";
 // @deno-types="npm:@types/pg@8.6.6";
 import pg from "npm:pg@8.8.0";
 
+// @deno-types="npm:@types/morgan@1.9.4";
+import morgan from "npm:morgan@1.10.0";
+
 import * as knex from "npm:knex@2.3.0";
 
 const {
@@ -52,7 +55,7 @@ const app = express();
 const whitelist = ['http://localhost:4200'];
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
+    if (whitelist.includes(origin as string)) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
@@ -60,10 +63,11 @@ const corsOptions: cors.CorsOptions = {
   }
 };
 
-let corsHandler = cors(corsOptions) as (options: cors.CorsOptions) => express.RequestHandler;
+const corsHandler = cors(corsOptions) as (options: cors.CorsOptions) => express.RequestHandler;
 
-app.use(corsHandler);
-app.use(express.json());
+// app.use(morgan('combined'))
+// app.use(corsHandler);
+// app.use(express.json());
 
 
 app.get("/", function (f, res) {
@@ -77,8 +81,7 @@ app.get("/api", function (req, res) {
 app.get("/api/user", function (req, res) {
   res.send({name: "John"});
 }); */
-
-app.listen(3000);
-
-console.log("listening on http://localhost:3000/");
-
+const port = 3000;
+app.listen(port, () => {
+  console.log(`listening on http://localhost:${port}/`);
+});
