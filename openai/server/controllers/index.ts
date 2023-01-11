@@ -1,3 +1,3 @@
-export * from './indexController';
-export * from './modelsController';
-export * from './completionController';
+export * from './home';
+export * from './models';
+export * from './completion';

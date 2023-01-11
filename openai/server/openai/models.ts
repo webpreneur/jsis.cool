@@ -1,3 +1,5 @@
+// https://beta.openai.com/docs/models
+
 import { ListModelsResponse, Model } from "openai";
 
 import { openai } from "./api"
