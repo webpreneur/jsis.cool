@@ -1,36 +1,31 @@
-import dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-dotenv.config()
+import fastify from 'fastify'
+import { CreateCompletionRequest } from 'openai';
+import { createCompletion } from './openai';
 
-import { Configuration, OpenAIApi } from 'openai';
-import inquirer from 'inquirer';
+const server = fastify();
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+server.get('/', async (request, reply) => {
+  return 'Hi!';
 });
-const openai = new OpenAIApi(configuration);
 
-try {
-  const completion = await openai.createCompletion({
-    model: "text-davinci-002",
-    prompt: "Hello world",
-  });
-  console.log(completion.data.choices[0].text);
-} catch (error: any) {
-  if (error.response) {
-    console.log(error.response.status);
-    console.log(error.response.data);
-  } else {
-    console.log(error.message);
+server.post<{
+  Body: CreateCompletionRequest,
+  Reply: any
+}>('/create-completion', async (request, reply) => {
+  const x = await createCompletion(request.body);
+  console.log(x);
+  reply.status(200).send(x);
+});
+
+server.get<{Querystring: { prompt: string }}>('/q', async (request, reply) => {
+  const { prompt } = request.query;
+  return prompt;
+});
+
+server.listen({ port: 8080 }, (err, address) => {
+  if (err) {
+    console.error(err)
+    process.exit(1)
   }
-}
-
-const models = await openai.listModels();
-
-const { prompt } = await inquirer.prompt({type: 'input', name: 'prompt', message: 'Ask...'});
-
-const completion = await openai.createCompletion({
-  model: "text-davinci-003",
-  prompt,
+  console.log(`Server listening at ${address}`)
 });
-
-console.log(completion.data.choices[0].text);
