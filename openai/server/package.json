@@ -6,7 +6,8 @@
   "type": "module",
   "module": "esnext",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "npm run serve",
+    "serve": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
     "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4"
