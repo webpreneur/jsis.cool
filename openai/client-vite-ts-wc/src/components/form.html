@@ -1,0 +1,43 @@
+
+<template>
+  <div>
+    <!-- Place your HTML markup here -->
+  </div>
+</template>
+
+<script>
+  class MyWebComponent extends HTMLElement {
+    constructor() {
+      super();
+
+      // Create a shadow root to house your markup
+      this.attachShadow({mode: 'open'});
+    }
+
+    connectedCallback() {
+      // Determine if the browser supports the template tag
+      const supportsTemplate = 'content' in document.createElement('template');
+      // If the browser supports the template tag, use it
+      if (supportsTemplate) {
+        const template = document.querySelector('template');
+        const clone = document.importNode(template.content, true);
+        this.shadowRoot.appendChild(clone);
+      } else {
+        // Otherwise, manually create the template
+        const template = document.createElement('template');
+        template.innerHTML = `
+          <div>
+            <!-- Place your HTML markup here -->
+          </div>
+        `;
+        const clone = document.importNode(template.content, true);
+        this.shadowRoot.appendChild(clone);
+      }
+
+      // Add your custom functionality here
+      // You can access the shadow root with this.shadowRoot
+    }
+  }
+
+  customElements.define('form', MyWebComponent);
+</script>
