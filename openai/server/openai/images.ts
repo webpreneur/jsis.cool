@@ -4,7 +4,7 @@ import { CreateImageRequest, ImagesResponse } from "openai";
 
 import { openai } from "./api";
 
-export const createCompletion = async (request: CreateImageRequest): Promise<ImagesResponse | undefined> => {
+export const createImage = async (request: CreateImageRequest): Promise<ImagesResponse | undefined> => {
     try {
         const { data: image } = await openai.createImage(request);
         return image;

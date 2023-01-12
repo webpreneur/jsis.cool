@@ -13,7 +13,6 @@ export const createCompletion = async (request: CreateCompletionRequest): Promis
             request,
             // https://axios-http.com/docs/req_config
             {
-                timeout: 5000,
                 responseType: 'json'
             }
         );
