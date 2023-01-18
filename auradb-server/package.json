@@ -1,0 +1,30 @@
+{
+  "name": "auradb-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "neo4j.ts",
+  "type": "module",
+  "module": "esnext",
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "nodemon neo4j.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "neo4j",
+    "ts-node"
+  ],
+  "author": "webpreneur",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "neo4j-driver": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
+  }
+}
