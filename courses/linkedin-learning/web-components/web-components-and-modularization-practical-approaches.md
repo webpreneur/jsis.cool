@@ -13,7 +13,9 @@ Advantages of Components:
 - Encapsulation
 - Component Thinking
   - organized
-
+- Simplification
+  - underlying complexity is hidden by components
+- 
 
 # Components as Mental Model
 
@@ -40,3 +42,7 @@ Another approach a component's mental model
 - **Top-down** ~ One way flow only from top to down)
 - **Isolation** ~ Independent from the state of other components
 - **Stand-alone** ~ Operation and testable in isolation
+  - testability
+  - reusability
+
+

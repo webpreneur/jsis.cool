@@ -16,7 +16,9 @@
   - different than the others it is even more subtle
 
 ## Style Linting
+<mark>Important</mark>
 - VSCode - `Prettier`
 - VSCode - `stylelint`
 - npm - `stylelint`
-- 
+
+[inLearning - Write better CSS with stylelint](https://www.linkedin.com/learning/css-tips/write-better-css-with-stylelint)
