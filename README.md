@@ -2,7 +2,26 @@
 
 home page for the jsis.cool channel
 
-## Docker
+# Learning Platforms
+
+| Title                                                                                                                 	| Published 	| Updated 	| Length 	| Price 	| Author                                                             	| Tags                	|
+|-----------------------------------------------------------------------------------------------------------------------	|-----------	|---------	|--------	|-------	|--------------------------------------------------------------------	|---------------------	|
+| [GitHub Tips & Tricks](https://egghead.io/courses/github-tips-tricks-6fc4)                                            	|           	|         	|        	| Free  	| Joe Previte                                                        	| github, git         	|
+| [Up and Running with Typescript](https://egghead.io/courses/up-and-running-with-typescript)                           	|           	|         	|        	|       	| [John Lindquist](https://egghead.io/q/resources-by-john-lindquist) 	| typescript, ts      	|
+| [Convert SCSS (Sass) to CSS-in-JS](https://egghead.io/courses/convert-scss-sass-to-css-in-js)                         	| 5y ago    	| 2y ago  	| 23m    	| Free  	|                                                                    	| css, scss, sass, js 	|
+| [Publish JavaScript packages on npm](https://egghead.io/courses/publish-javascript-packages-on-npm)                   	| 6y ago    	| 2y ago  	| 21m    	| Free  	|                                                                    	|                     	|
+| [Learn the Best and Most Useful SCSS](https://egghead.io/courses/learn-the-best-and-most-useful-scss)                 	| 6y ago    	| 2y ago  	| 39m    	| Free  	|                                                                    	| sass, scss, css     	|
+| [Practical Git for Everyday Professional Use](https://egghead.io/courses/practical-git-for-everyday-professional-use) 	|           	|         	| 1h     	| Free  	| [Trevor Miller]( https://egghead.io/q/resources-by-trevor-miller ) 	| git                 	|           	|
+
+
+[^1]: discount of 60% to account for differences in currencies.
+
+## egghead
+
+- A lot of free courses
+- Affordable monthly fee with optional region discount
+
+# Docker
 
 ### Build Containers
 
