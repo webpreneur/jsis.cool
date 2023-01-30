@@ -9,6 +9,7 @@ export interface CreateCourseRequest {
     started: boolean;
     uploaded: Date;
     updated: Date;
+    url: string;
 }
 
 export interface CreateAuthorRequest {

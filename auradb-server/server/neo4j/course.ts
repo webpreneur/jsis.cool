@@ -1,38 +1,7 @@
-import neo4j, { Driver } from 'neo4j-driver';
-import dotenv from 'dotenv';
-import { CreateCourseRequest } from './server/controllers/api.interfaces';
+import { Driver } from "neo4j-driver";
 
-dotenv.config({ path: './.env'});
-
-const uri = process.env.NEO4J_URI as string;
-const user = process.env.NEO4J_USERNAME as string;
-const password = process.env.NEO4J_PASSWORD as string;
-
-// To learn more about the driver: 
-// https://neo4j.com/docs/javascript-manual/current/client-applications/#js-driver-driver-object
-
-const driver = neo4j.driver(uri, neo4j.auth.basic(user, password));
-
-try {
-
-    const person1Name = 'Alice';
-    const person2Name = 'David';
-
-    await createFriendship(driver, person1Name, person2Name);
-
-    await findPerson(driver, person1Name);
-
-    await findPerson(driver, person2Name);
-
-} catch (error) {
-
-    console.error(`Something went wrong: ${error}`);
-
-} finally {
-    // Don't forget to close the driver connection when you're finished with it.
-    await driver.close();
-}
-
+import { CreateCourseRequest } from "../controllers/api.interfaces";
+import { driver } from "./driver";
 
 async function createFriendship (
     driver: Driver, 
@@ -81,35 +50,31 @@ async function createFriendship (
     }
 }
 
-async function findPerson(driver: Driver, personName: string) {
-
+export const createCourse = async ({
+    author,
+    description,
+    title,
+    finished,
+    labels,
+    lengthInMinutes,
+    level,
+    started,
+    updated,
+    uploaded,
+    url
+}: CreateCourseRequest) => {
     const session = driver.session({ database: 'neo4j' });
-
+    
     try {
-
-        const readQuery = `
-            MATCH (p:Person)
-
-            WHERE p.name = $personName
-
-            RETURN p.name AS name
+        const writeQuery = `
+            MERGE (c:Course { author: $author })
+            MERGE (a:Author { name: $author })
+            MERGE (c)-[:AUTHORED_BY]->(a)
+            RETURN c
         `;
-
-        const readResult = await session.executeRead(tx =>
-            tx.run(readQuery, { personName })
-        );
-
-        readResult.records.forEach(record => {
-            console.log(`Found person: ${record.get('name')}`)
-        });
-
     } catch (error) {
         console.error(`Something went wrong: ${error}`);
     } finally {
         await session.close();
     }
-}
-
-const createCourse = async (course: CreateCourseRequest) => {
-    
 }
