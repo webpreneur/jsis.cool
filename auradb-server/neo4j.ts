@@ -1,13 +1,12 @@
 import neo4j, { Driver } from 'neo4j-driver';
 import dotenv from 'dotenv';
+import { CreateCourseRequest } from './server/controllers/api.interfaces';
 
 dotenv.config({ path: './.env'});
 
 const uri = process.env.NEO4J_URI as string;
 const user = process.env.NEO4J_USERNAME as string;
 const password = process.env.NEO4J_PASSWORD as string;
-
-console.log({ uri, user, password });
 
 // To learn more about the driver: 
 // https://neo4j.com/docs/javascript-manual/current/client-applications/#js-driver-driver-object
@@ -109,4 +108,8 @@ async function findPerson(driver: Driver, personName: string) {
     } finally {
         await session.close();
     }
+}
+
+const createCourse = async (course: CreateCourseRequest) => {
+    
 }
