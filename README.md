@@ -14,6 +14,8 @@ home page for the jsis.cool channel
 | [Practical Git for Everyday Professional Use](https://egghead.io/courses/practical-git-for-everyday-professional-use) 	|           	|         	| 1h     	| Free  	| [Trevor Miller]( https://egghead.io/q/resources-by-trevor-miller ) 	| git                 	|           	|
 
 
+
+
 [^1]: discount of 60% to account for differences in currencies.
 
 ## egghead
