@@ -53,3 +53,5 @@ Mutability in JS
 
 [GitHub - Simple Redux Store](https://github.com/ultimatecourses/redux-store)
 _Vanilla TypeScript example of a Redux Store_
+
+[GitHub - NGRX: Store + Effects app](https://github.com/ultimatecourses/ngrx-store-effects-app)
